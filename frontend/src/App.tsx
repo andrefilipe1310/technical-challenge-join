@@ -2,7 +2,9 @@
 import './App.css'
 import Navbar from './components/navbar/Navbar'
 import AddProduct from './pages/add-products/AddProduct'
+import EditProduct from './pages/edit-product/EditProduct'
 import Home from './pages/home/Home'
+import ProductManagement from './pages/product-management/ProductManagement'
 
 
 function App() {
@@ -11,7 +13,7 @@ function App() {
   return (
     <>
       <Navbar items={[]}/>
-      <AddProduct/>
+      <EditProduct id={1}/>
     </>
   )
 }

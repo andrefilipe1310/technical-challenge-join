@@ -1,16 +1,14 @@
-
-import { CirclePlus, CircleX, Save } from 'lucide-react'
-import CardSection from '../../components/card-section/CardSection'
-import './AddProduct.css'
-import { ProductRequestDTO } from '../../types/productTypes'
 import { useState } from 'react'
+import CardSection from '../../components/card-section/CardSection'
+import { ProductRequestDTO } from '../../types/productTypes'
+import './EditProduct.css'
+import { CirclePlus, Save } from 'lucide-react'
 
 
 
+function EditProduct({ id }: { id: number }) {
 
-function AddProduct() {
-
-    const [formData,setFormData] = useState<ProductRequestDTO>({
+    const [formData, setFormData] = useState<ProductRequestDTO>({
         name: '',
         description: '',
         category: "",
@@ -19,8 +17,9 @@ function AddProduct() {
         amount: 0
     })
 
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const {name,value} = e.target
+        const { name, value } = e.target
         setFormData((prevData) => ({
             ...prevData,
             [name]: value
@@ -28,17 +27,12 @@ function AddProduct() {
     }
 
     return (
-        <div>
-
-            <div className="buttons">
-                <button id='save' className='button'><Save color="#fff" /> Salvar</button>
-                <button id='cancel' className='button'><CircleX size={22} color="#fff" /> Cancelar</button>
-            </div>
-            <h1>Cadastre o seu produto</h1>
+        <>
+            <h1>{formData.name}</h1>
             <CardSection>
                 <h2>Informações basicas</h2>
                 <label htmlFor="product-name">Nome do Produto *</label>
-                <input id='product-name' name="name" value={formData.name} onChange={handleInputChange} placeholder='EX: Abacaxi, Melão' type="text"  />
+                <input id='product-name' name="name" value={formData.name} onChange={handleInputChange} placeholder='EX: Abacaxi, Melão' type="text" />
                 <label>Categoria *</label>
                 <select id='product-category' name='category' onChange={handleInputChange} value={formData.category}>
                     <option>Roupa</option>
@@ -47,34 +41,25 @@ function AddProduct() {
                     <option>Outros</option>
                 </select>
                 <label>Descrição *</label>
-                <textarea id='product-description' name="description"  onChange={handleInputChange} value={formData.description}></textarea>
-
-            </CardSection>
-
-            <CardSection>
+                <textarea id='product-description' name="description" onChange={handleInputChange} value={formData.description}></textarea>
                 <h2>Imagem do produto</h2>
 
                 <div className='div-image'>
 
                     <h3><CirclePlus id='icon-circle-plus' color="#000" /> Adicionar Imagem</h3>
                 </div>
-            </CardSection>
-
-            <CardSection>
                 <h2>Preço e Estoque</h2>
                 <label>Preço *</label>
                 <input id='product-price' name='price' value={formData.price} onChange={handleInputChange} placeholder='Ex: 20,00' type="number" />
                 <label>Estoque *</label>
                 <input id='product-amount' name='amount' value={formData.amount} onChange={handleInputChange} placeholder='Ex: 50' type="number" />
-
+                <div className="buttons">
+                    <button id='save' className='button'><Save color="#fff" /> Salvar</button>
+                </div>
             </CardSection>
-            <div className="buttons">
-                <button id='save' className='button'><Save color="#fff" /> Salvar</button>
-                <button id='cancel' className='button'><CircleX size={22} color="#fff" /> Cancelar</button>
-            </div>
-
-        </div>
+        </>
     )
 }
 
-export default AddProduct
+
+export default EditProduct

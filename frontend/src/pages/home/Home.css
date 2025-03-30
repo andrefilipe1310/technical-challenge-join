@@ -3,7 +3,7 @@
     padding: 0 2em;
 }
 
-.grid-template-columns-1 {
+.grid-template-columns-inline-3 {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5em;
 }

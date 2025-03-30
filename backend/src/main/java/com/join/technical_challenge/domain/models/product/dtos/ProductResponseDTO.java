@@ -1,7 +1,12 @@
 package com.join.technical_challenge.domain.models.product.dtos;
 
 public record ProductResponseDTO(
+        Long id,
         String name,
-        String description
+        String description,
+        String category,
+        String imageUrl,
+        long price,
+        int amount
 ) {
 }
