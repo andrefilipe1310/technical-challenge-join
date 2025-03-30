@@ -1,0 +1,17 @@
+.card-section {
+    border-top: solid 4px #4c0864;
+    border-radius: 10px;
+    box-shadow: inset;
+    margin-bottom: 1em;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    span{
+        border-radius: 50%;
+        padding: 1em;
+        background-color: #000;
+        
+    }
+    p {
+        margin-top: 1em;
+        color: #3a3939;
+    }
+}
