@@ -35,7 +35,7 @@ mvn spring-boot:run
 - Abra seu navegador e acesse http://localhost:8080/swagger-ui/index.html
 
 5. **Acessar as rotas da aplicação (postman)**
-- Importe para dentro do postman o arquivo [inovamed.postman_collection.json](https://github.com/andrefilipe1310/technical-challenge-join/blob/main/backend/join.postman_collection.json)
+- Importe para dentro do postman o arquivo [join.postman_collection.json](https://github.com/andrefilipe1310/technical-challenge-join/blob/main/backend/join.postman_collection.json)
 ### Notas Importantes
 
 - Deixe as portas 5173 e 8080 do seu computador livres para o uso dessa aplicação
