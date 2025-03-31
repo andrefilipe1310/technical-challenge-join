@@ -16,6 +16,7 @@ Além disso, implementei a integração com o Cloudinary para o armazenamento ef
 - [Node.js](https://nodejs.org/) 
 - [Docker (opcional)](https://www.docker.com/get-started/)
 ### Passo a Passo
+#### Maneira 1
 1. **Clone o repositório**
 Abra seu terminal e execute o seguinte comando para clonar o repositório:
 
@@ -38,8 +39,15 @@ mvn spring-boot:run
 
 5. **Acessar as rotas da aplicação (postman)**
 - Importe para dentro do postman o arquivo [join.postman_collection.json](https://github.com/andrefilipe1310/technical-challenge-join/blob/main/backend/join.postman_collection.json)
-### Notas Importantes
 
+#### Maneira 2 (usando o docker compose)
+1. Na raiz do projeto producto o arquivo docker-compose.yml
+2. Execute o seguinte comando:
+```bash
+docker-compose up --build
+```
+3. O frontend está disponivel em http://localhost:5173 e o backend em http://localhost:8080
+### Notas Importantes
 - Deixe as portas 5173 e 8080 do seu computador livres para o uso dessa aplicação
 
 ### Imagens da aplicação

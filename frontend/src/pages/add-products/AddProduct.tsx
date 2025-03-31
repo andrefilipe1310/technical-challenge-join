@@ -4,15 +4,38 @@ import { Link } from 'react-router-dom'
 import CardSection from '../../components/card-section/CardSection'
 import './AddProduct.css'
 import { ProductRequestDTO } from '../../types/productTypes'
-import { useRef, useState } from 'react'
+import {  useState } from 'react'
 import { createProduct } from '../../apis/api-backend/productServices'
 import { apiImage } from '../../infra/axios/axiosInstance'
 
 
-
+type Asset = {
+    asset_folder: string;
+    asset_id: string;
+    bytes: number;
+    created_at: string; 
+    display_name: string;
+    etag: string;
+    format: string;
+    height: number;
+    original_filename: string;
+    placeholder: boolean;
+    public_id: string;
+    resource_type: string;
+    secure_url: string;
+    signature: string;
+    tags: string[]; 
+    type: string;
+    url: string;
+    version: number;
+    version_id: string;
+    width: number;
+  }
 
 
 function AddProduct() {
+
+    
 
     const [formData, setFormData] = useState<ProductRequestDTO>({
         name: '',
@@ -46,7 +69,8 @@ function AddProduct() {
                 `/upload`,
                 formData
             );
-            let secureUrl = response.data.secure_url as string
+            let asset = response.data as Asset
+            let secureUrl = asset.secure_url 
             setImageUrl(secureUrl);
             setFormData((prevData) => ({
                 ...prevData,
@@ -98,7 +122,7 @@ function AddProduct() {
                 <h2>Imagem do produto</h2>
 
                 <div className='div-image'>
-                    <label for="file-upload" class="upload-label">
+                    <label htmlFor="file-upload" className="upload-label">
                         <CirclePlus /> Adicionar Imagem
                     </label>
                     <input className='hidden-input'
