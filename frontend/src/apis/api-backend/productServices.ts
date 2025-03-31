@@ -3,7 +3,7 @@ import { ProductRequestDTO, ProductResponseDTO, ProductUpdateDTO } from "../../t
 
 
 
-
+// Todas os services da api seram instanciados aqui para evitar repetições desnecessarias em outras partes do codigo
 
 
 export const createProduct = async (productRequestDTO: ProductRequestDTO): Promise<ProductResponseDTO | null> => {

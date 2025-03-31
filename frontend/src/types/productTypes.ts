@@ -1,3 +1,5 @@
+//Classes mapeadas do backend
+
 export type ProductRequestDTO = {
     name:string
     description:string

@@ -3,10 +3,8 @@ import { FilePenLine, Trash2 } from 'lucide-react';
 import image from '../../assets/images/image-not-found.jpg'
 import { ProductResponseDTO } from '../../types/productTypes';
 import { Link } from 'react-router-dom';
+
 function CardProduct({ product, onDelete }: { product: ProductResponseDTO; onDelete: (id: number) => void }) {
-
-   
-
 
     return (
         <div className='card-product'>
@@ -35,14 +33,12 @@ function CardProduct({ product, onDelete }: { product: ProductResponseDTO; onDel
             </div>
             <div className='buttons'>
                 <Link to={`/edit-product/${product.id}`}><button className='edit-product'><FilePenLine /></button></Link>
+                {/* onDelete é passado pelo pai */}
                 <button className='delete-product' onClick={() => onDelete(product.id)}><Trash2 /></button>
             </div>
-
-
             <p className='description'>{product.description}</p>
 
         </div>
-
 
     )
 }

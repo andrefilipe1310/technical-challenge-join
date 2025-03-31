@@ -25,6 +25,7 @@ function EditProduct() {
         try {
             const response = await updateProduct(product.id, product)
             console.log(response)
+            alert("Produto editado com sucesso")
         } catch (error) {
             console.log(error)
         }

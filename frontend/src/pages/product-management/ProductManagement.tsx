@@ -17,7 +17,7 @@ function ProductManagement() {
         }
     }
 
-    const handleGoToPage = () => {
+    const handleGoToPage = () => { 
         setPage(page + 1)
     }
 
@@ -32,7 +32,7 @@ function ProductManagement() {
         setProducts(prevProducts => prevProducts.filter(product => product.id !== id))
     }
     
-    useEffect(() => {
+    useEffect(() => { //useEffect para carregamento sob demanda
         handleFindAllProducts()
     }, [page])
 
@@ -48,6 +48,7 @@ function ProductManagement() {
                     />
                 ))}
             </CardSection>
+            {/* botões da paginação */}
             <div className='pagination-controls'>
                 <button 
                     className='button' 

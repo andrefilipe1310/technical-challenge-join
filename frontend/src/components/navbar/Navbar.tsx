@@ -4,6 +4,7 @@ import logo from '../../assets/images/logo.jpg'
 import persona from '../../assets/images/join-persona.png'
 
 function Navbar() {
+    // apenas a imagem e a brandpersona, para futuros progressos um map de itens
     return (
         <nav>
             <div className="div-logo">

@@ -1,5 +1,6 @@
 .card-product {
     padding: 1rem;
+    width: 80%;
     border-left: 4px solid #4c0864;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

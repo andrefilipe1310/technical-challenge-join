@@ -1,8 +1,9 @@
 import { Link  } from 'react-router-dom';
 import './Card.css'
 import{ LucideProps} from 'lucide-react';
+
 function Card({ link,title,description,icon:Icon  }: {link:string;  title: string;description:string; icon: React.ComponentType<LucideProps> }){
-    
+    // card usado apenas para a home para utilização correta precisa ter o lucide-react
     
     return(
         <Link to={`/${link}`}>
