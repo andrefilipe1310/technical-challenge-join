@@ -9,15 +9,16 @@ function ProductManagement() {
     const [page, setPage] = useState(0)
     const [items] = useState(3)
     const [products, setProducts] = useState<ProductResponseDTO[]>([])
-    
+    const [alert, setAlert] = useState('')
+
     const handleFindAllProducts = async () => {
-        const response = await findAllProduct({page, items})
+        const response = await findAllProduct({ page, items })
         if (response) {
             setProducts(response)
         }
     }
 
-    const handleGoToPage = () => { 
+    const handleGoToPage = () => {
         setPage(page + 1)
     }
 
@@ -31,35 +32,40 @@ function ProductManagement() {
         deleteByIdProduct(id)
         setProducts(prevProducts => prevProducts.filter(product => product.id !== id))
     }
-    
+
     useEffect(() => { //useEffect para carregamento sob demanda
         handleFindAllProducts()
+        setAlert("Nenhum produto para ver")
     }, [page])
 
     return (
         <div className='main'>
             <CardSection>
                 <h1>Seus Produtos</h1>
-                {products.map((product) => (
-                    <CardProduct 
-                        key={product.id}
-                        onDelete={handleDeleteByIdProduct} 
-                        product={product} 
-                    />
-                ))}
+                {products.length > 0 ? (
+                    products.map((product) => (
+                        <CardProduct
+                            key={product.id}
+                            onDelete={handleDeleteByIdProduct}
+                            product={product}
+                        />
+                    ))
+                ) : (
+                    <h2>{alert}</h2> 
+                )}
             </CardSection>
             {/* botões da paginação */}
             <div className='pagination-controls'>
-                <button 
-                    className='button' 
+                <button
+                    className='button'
                     onClick={handlePreviousPage}
                     disabled={page === 0}
                 >
                     Anterior
                 </button>
                 <button className='button'>{page + 1}</button>
-                <button 
-                    className='button' 
+                <button
+                    className='button'
                     onClick={handleGoToPage}
                 >
                     Próximo
