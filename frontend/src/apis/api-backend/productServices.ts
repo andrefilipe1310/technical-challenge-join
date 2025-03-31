@@ -28,9 +28,9 @@ export const findByIdProduct = async (id:number): Promise<ProductResponseDTO | n
     }
 }
 
-export const findAllProduct = async (): Promise<ProductResponseDTO[] | null> => {
+export const findAllProduct = async ({page,items}:{page:number;items:number}): Promise<ProductResponseDTO[] | null> => {
     try {
-        const response = await api.get(`/product`)
+        const response = await api.get(`/product?pages=${page}&items=${items}`)
         console.log("Produtos: ", response.data)
         return response.data as ProductResponseDTO[]
     } catch (error) {

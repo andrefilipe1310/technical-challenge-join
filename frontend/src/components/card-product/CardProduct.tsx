@@ -25,7 +25,8 @@ function CardProduct({ product, onDelete }: { product: ProductResponseDTO; onDel
             <div className="grid flex grid-template-columns-inline-2">
                 <div className='div-price'>
                     <p>preço</p>
-                    <p className='price'>R${product.price}</p>
+                    {/* convertendo os centavos para o valor em reais */}
+                    <p className='price'>R${product.price/100},00</p>
                 </div>
                 <div className="div-amount">
                     <p>Estoque</p>
@@ -38,7 +39,7 @@ function CardProduct({ product, onDelete }: { product: ProductResponseDTO; onDel
             </div>
 
 
-            <p>{product.description}</p>
+            <p className='description'>{product.description}</p>
 
         </div>
 

@@ -10,26 +10,26 @@ import { apiImage } from '../../infra/axios/axiosInstance'
 
 
 type Asset = {
-    asset_folder: string;
-    asset_id: string;
-    bytes: number;
-    created_at: string; 
-    display_name: string;
-    etag: string;
-    format: string;
-    height: number;
-    original_filename: string;
-    placeholder: boolean;
-    public_id: string;
-    resource_type: string;
-    secure_url: string;
-    signature: string;
-    tags: string[]; 
-    type: string;
-    url: string;
-    version: number;
-    version_id: string;
-    width: number;
+    asset_folder: string
+    asset_id: string
+    bytes: number
+    created_at: string 
+    display_name: string
+    etag: string
+    format: string
+    height: number
+    original_filename: string
+    placeholder: boolean
+    public_id: string
+    resource_type: string
+    secure_url: string
+    signature: string
+    tags: string[] 
+    type: string
+    url: string
+    version: number
+    version_id: string
+    width: number
   }
 
 
@@ -40,29 +40,27 @@ function AddProduct() {
     const [formData, setFormData] = useState<ProductRequestDTO>({
         name: '',
         description: '',
-        category: "",
-        imageUrl: "",
+        category: '',
+        imageUrl: '',
         price: 1,
         amount: 1
     })
 
-    const [imageUrl, setImageUrl] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const [imageUrl, setImageUrl] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState("")
 
-
-    const uploadPreset = "joinnnnn";
+    //upload registrado apenas para esse teste, para funcionar precisa ajustar as permissões diretamente no painel do cloudinary
+    const uploadPreset = 'joinnnnn'
 
     const uploadImage = async (files: FileList | null) => {
-        if (!files || files.length === 0) return;
-
-        setLoading(true);
-        setError("");
-
-        const file = files[0];
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", uploadPreset);
+        if (!files || files.length === 0) return
+        setLoading(true)
+        setError("")
+        const file = files[0]
+        const formData = new FormData()
+        formData.append("file", file)
+        formData.append("upload_preset", uploadPreset)
 
         try {
             const response = await apiImage.post(
@@ -76,13 +74,18 @@ function AddProduct() {
                 ...prevData,
                 imageUrl: secureUrl
             }))
-            console.log("Upload realizado:", response.data);
+            console.log("Upload realizado:", response.data)
         } catch (error) {
-            console.error("Erro no upload:", error);
+            console.error("Erro no upload:", error)
         }
     };
 
     const hadleCreateProduct = () => {
+        // Salvando em centavos para evitar erros de arredondamento
+        setFormData((prevData) => ({
+            ...prevData,
+            price: prevData.price*100
+        }))
         createProduct(formData)
     }
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -160,9 +163,9 @@ function AddProduct() {
             <CardSection>
                 <h2>Preço e Estoque</h2>
                 <label>Preço *</label>
-                <input id='product-price' name='price' value={formData.price} onChange={handleInputChange} placeholder='Ex: 20,00' type="number" />
+                <input id='product-price' name='price' min="1" value={formData.price} onChange={handleInputChange} placeholder='Ex: 20,00' type="number" />
                 <label>Estoque *</label>
-                <input id='product-amount' name='amount' value={formData.amount} onChange={handleInputChange} placeholder='Ex: 50' type="number" />
+                <input id='product-amount' name='amount' min="1" value={formData.amount} onChange={handleInputChange} placeholder='Ex: 50' type="number" />
 
             </CardSection>
             <div className="buttons">

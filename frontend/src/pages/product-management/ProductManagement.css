@@ -1,4 +1,9 @@
 .card-section {
-    padding: 2em 0 2em 2em;
+    padding: 2em 0 1em 1em;
     margin: 0 2em;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
 }

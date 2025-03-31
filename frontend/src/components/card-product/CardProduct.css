@@ -1,120 +1,145 @@
 .card-product {
-    padding: 1em;
-    border-left: solid 4px #4c0864;
+    padding: 1rem;
+    border-left: 4px solid #4c0864;
     border-radius: 10px;
-    box-shadow: inset;
-    margin: 0 1em 1em 1em;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-
-    &span {
-        border-radius: 50%;
-        padding: 1em;
-        background-color: #000;
-
-    }
-
-    & .div-price {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-      justify-content: start;
-    }
-    & .div-amount {
-        
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-    }
-
-    & .div-title {
-        display: flex;
-
-        & img {
-            width: 5em;
-            height: 5em;
-            margin-right: 2em;
-            border-radius: 8px;
-        }
-
-        & div h2 {
-            margin-bottom: -0.5em;
-        }
-
-    }
-
-    &p {
-        margin-top: 1em;
-        color: #3a3939;
-    }
-
-    & .buttons {
-        display: flex;
-        justify-content: end;
-        margin-right: 1em;
-
-        & button {
-            margin-right: 1em;
-            border-radius: 8px;
-            padding: 0.8em;
-        }
-    }
+    margin: 0 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
+.card-product span {
+    border-radius: 50%;
+    padding: 1rem;
+    background-color: #000;
+}
 
+.card-product .div-price,
+.card-product .div-amount {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-product .div-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-product .div-title img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card-product p {
+    margin-top: 1rem;
+    color: #3a3939;
+}
+
+.card-product .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.card-product .buttons button {
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
 
 .grid {
     display: grid;
+    gap: 1.5rem;
 }
 
 .grid-template-columns-inline-2 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5em;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .flex {
     display: flex;
 }
+
 .div-checkbox {
     display: flex;
-    justify-content: end;
-}
-.div-checkbox input {
-    appearance: none; 
-    width: 2em;
-    height: 2em;
-    border: 0.15em solid #555;
-    border-radius: 8px;
-    background-color: transparent;
-    transition: background-color 0.2s, border-color 0.2s;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.div-checkbox input:checked {
-    background-color: #4c0864; 
-    border-color: #4c0864;
+.div-checkbox input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    border: 2px solid #4c0864;
+    border-radius: 6px;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.2s;
+
 }
 
-.div-checkbox input:checked::before {
-    content: '✔';
-    font-size: 1.2em;
-    color: white;
+.div-checkbox input[type="checkbox"]:checked {
+    background-color: #4c0864;
+}
+
+.div-checkbox input[type="checkbox"]:checked::after {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 8px;
+    top: 4px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
+
 .price,
 .amount {
-    margin-top: -1em;
+    margin-top: -1rem;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .edit-product {
-    color: #fff;
     background-color: #4b0454;
+    color: white;
+    border: none;
 }
 
 .delete-product {
-    color: #fff;
     background-color: #a04b4b;
+    color: white;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .card-product .div-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .price,
+    .amount {
+        margin-top: -5rem;
+    }
+
+    .description {
+        display: none;
+    }
+
+    .card-product .div-title img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+
+    .grid-template-columns-inline-2 {
+        grid-template-columns: 1fr;
+    }
 }

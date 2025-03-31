@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import CardSection from '../../components/card-section/CardSection';
 import { ProductResponseDTO } from '../../types/productTypes';
 import './EditProduct.css';
-import {  Save } from 'lucide-react';
+import { Save } from 'lucide-react';
 import { findByIdProduct, updateProduct } from '../../apis/api-backend/productServices';
 import { useParams } from 'react-router-dom';
 
 function EditProduct() {
-    let {idParams} = useParams()
+    let { idParams } = useParams()
     let id = Number(idParams)
     const [product, setProduct] = useState<ProductResponseDTO | null>(null);
 
@@ -21,21 +21,21 @@ function EditProduct() {
         handleFindByIdProduct(id)
     }, [id])
 
-    const handleUpdateProduct = async(product:ProductResponseDTO) => {
+    const handleUpdateProduct = async (product: ProductResponseDTO) => {
         try {
-            const response = await updateProduct(product.id,product)
+            const response = await updateProduct(product.id, product)
             console.log(response)
         } catch (error) {
             console.log(error)
         }
-       
-      
+
+
     }
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target
         setProduct((prevData) => (prevData ? { ...prevData, [name]: value } : prevData))
     };
-    
+
     if (!product) {
         return <p>Produto não encontrado</p>
     }
@@ -58,6 +58,15 @@ function EditProduct() {
                 <select id="product-category" name="category" onChange={handleInputChange} value={product?.category || ""}>
                     <option value="Roupa">Roupa</option>
                     <option value="Eletronico">Eletrônico</option>
+                    <option value="Alimentos">Alimentos</option>
+                    <option value="Beleza">Beleza e Cuidados Pessoais</option>
+                    <option value="Casa">Casa e Decoração</option>
+                    <option value="Esporte">Esportes e Lazer</option>
+                    <option value="Brinquedo">Brinquedos e Jogos</option>
+                    <option value="Ferramentas">Ferramentas e Materiais de Construção</option>
+                    <option value="Móveis">Móveis</option>
+                    <option value="Automotivo">Automotivo</option>
+                    <option value="Saúde">Saúde</option>
                     <option value="Outros">Outros</option>
                 </select>
                 <label>Descrição </label>
@@ -67,12 +76,13 @@ function EditProduct() {
                     onChange={handleInputChange}
                     value={product?.description || ""}
                 ></textarea>
-                
+
                 <h2>Preço e Estoque</h2>
                 <label>Preço </label>
                 <input
                     id="product-price"
                     name="price"
+                    min="1"
                     value={product?.price || ""}
                     onChange={handleInputChange}
                     placeholder="Ex: 20,00"
@@ -82,13 +92,14 @@ function EditProduct() {
                 <input
                     id="product-amount"
                     name="amount"
+                    min="1"
                     value={product?.amount || ""}
                     onChange={handleInputChange}
                     placeholder="Ex: 50"
                     type="number"
                 />
                 <div className="buttons">
-                    <button className="button save" onClick={()=>handleUpdateProduct(product)}>
+                    <button className="button save" onClick={() => handleUpdateProduct(product)}>
                         <Save color="#fff" /> Salvar
                     </button>
                 </div>
