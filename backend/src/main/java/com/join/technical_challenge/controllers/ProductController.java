@@ -31,8 +31,8 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createProductService.execute(requestDTO));
     }
     @GetMapping
-    public ResponseEntity<List<ProductResponseDTO>> findAll(){
-        return ResponseEntity.status(HttpStatus.OK).body(findAllProductService.execute());
+    public ResponseEntity<List<ProductResponseDTO>> findAll(@RequestParam int pages,@RequestParam int items){
+        return ResponseEntity.status(HttpStatus.OK).body(findAllProductService.execute(pages,items));
     }
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponseDTO> findById(@PathVariable("id") Long id){

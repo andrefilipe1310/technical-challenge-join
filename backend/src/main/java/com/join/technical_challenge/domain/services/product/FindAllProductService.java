@@ -3,6 +3,7 @@ package com.join.technical_challenge.domain.services.product;
 import com.join.technical_challenge.domain.models.product.dtos.ProductResponseDTO;
 import com.join.technical_challenge.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +16,8 @@ public class FindAllProductService {
     @Autowired
     private ProductMapperDTOService mapperDTOService;
 
-    public List<ProductResponseDTO> execute() {
-        return repository.findAll().stream().map(product -> {
+    public List<ProductResponseDTO> execute(int pages, int items) {
+        return repository.findAll(PageRequest.of(pages, items)).stream().map(product -> {
             return mapperDTOService.toDTO(product);
         }).collect(Collectors.toList());
     }

@@ -50,5 +50,4 @@ docker-compose up --build
 ### Notas Importantes
 - Deixe as portas 5173 e 8080 do seu computador livres para o uso dessa aplicação
 
-### Imagens da aplicação
 
