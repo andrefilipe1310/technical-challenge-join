@@ -22,4 +22,7 @@ button, input {
   cursor: pointer;
 }
 
-
+a {
+  text-decoration: none;
+  color: #4c0864;
+}

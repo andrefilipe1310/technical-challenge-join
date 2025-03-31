@@ -1,9 +1,17 @@
-.grid{
-    display: grid;
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    & Card {
+        min-width: 6em;
+    }
+}
+.main {
     padding: 0 2em;
 }
-
-.grid-template-columns-inline-3 {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5em;
+/* Responsividade: Cards ocupam 100% da largura no celular */
+@media (max-width: 768px) {
+   .row {
+    flex-direction: column;
+   }
 }

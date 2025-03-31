@@ -1,19 +1,20 @@
 
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/navbar/Navbar'
-import AddProduct from './pages/add-products/AddProduct'
-import EditProduct from './pages/edit-product/EditProduct'
-import Home from './pages/home/Home'
-import ProductManagement from './pages/product-management/ProductManagement'
+import AppRoutes from './routes/Routes'
+
+
 
 
 function App() {
 
-
   return (
     <>
-      <Navbar items={[]}/>
-      <EditProduct id={1}/>
+      <Navbar />
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </>
   )
 }

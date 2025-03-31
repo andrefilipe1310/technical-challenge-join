@@ -1,4 +1,9 @@
 .card-section {
+    display: flex;
+   
+    flex-direction: column;
+    padding: 2em;
+    
     border-top: solid 4px #4c0864;
     border-radius: 10px;
     box-shadow: inset;

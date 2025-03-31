@@ -1,16 +1,21 @@
 import './CardProduct.css'
 import { FilePenLine, Trash2 } from 'lucide-react';
 import image from '../../assets/images/image-not-found.jpg'
-import { ProductRequestDTO } from '../../types/productTypes';
-function CardProduct(productRequestDTO:ProductRequestDTO) {
+import { ProductResponseDTO } from '../../types/productTypes';
+import { Link } from 'react-router-dom';
+function CardProduct({ product, onDelete }: { product: ProductResponseDTO; onDelete: (id: number) => void }) {
+
+   
+
+
     return (
         <div className='card-product'>
             <div className='grid grid-template-columns-inline-2'>
                 <div className='div-title'>
-                    <img src={image} alt="imagem do produto" />
+                    <img src={product.imageUrl || image} alt="imagem do produto" />
                     <div>
-                        <h2 className='title'>{productRequestDTO.name}</h2>
-                        <p className='category'>{productRequestDTO.category}</p>
+                        <h2 className='title'>{product.name}</h2>
+                        <p className='category'>{product.category}</p>
                     </div>
                 </div>
                 <div className="div-checkbox">
@@ -20,20 +25,20 @@ function CardProduct(productRequestDTO:ProductRequestDTO) {
             <div className="grid flex grid-template-columns-inline-2">
                 <div className='div-price'>
                     <p>preço</p>
-                    <p className='price'>R${productRequestDTO.price}</p>
+                    <p className='price'>R${product.price}</p>
                 </div>
                 <div className="div-amount">
                     <p>Estoque</p>
-                    <p className='amount'>{productRequestDTO.amount}</p>
+                    <p className='amount'>{product.amount}</p>
                 </div>
             </div>
             <div className='buttons'>
-                <button className='edit-product'><FilePenLine /></button>
-                <button className='delete-product'><Trash2 /></button>
+                <Link to={`/edit-product/${product.id}`}><button className='edit-product'><FilePenLine /></button></Link>
+                <button className='delete-product' onClick={() => onDelete(product.id)}><Trash2 /></button>
             </div>
 
 
-            <p>{productRequestDTO.description}</p>
+            <p>{product.description}</p>
 
         </div>
 

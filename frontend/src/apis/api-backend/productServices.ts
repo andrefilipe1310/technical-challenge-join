@@ -55,6 +55,6 @@ export const deleteByIdProduct = async (id:number): Promise<void> => {
     try {
         await api.delete(`/product/${id}`)
     } catch (error) {
-        console.log(`Erro ao buscar produto id = ${id}: `, error)
+        console.log(`Erro ao deletar produto id = ${id}: `, error)
     }
 }

@@ -1,8 +1,16 @@
+.main {
+   
+    padding: 0 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 input,select,textarea {
     background-color: #fff;
     border: solid 1px #000;
     border-radius: 5px;
-    width: 100%;
+    width: 90%;
     min-height: 2.5em;
     color: #000;
     padding: 2px;
@@ -12,13 +20,7 @@ textarea {
     height:5em ;
 }
 
-.card-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 2% 2% 2%;
-    margin: 0 0.5em 4em 4em;
-}
+
 .buttons {
     display: flex;
     justify-content: end;
@@ -31,11 +33,11 @@ textarea {
     margin-bottom: 100px;
     font-size:1rem;
 }
-#save {
+.save {
     background-color: #3c6050;
    
 }
-#cancel {
+.cancel {
     background-color: #a04b4b;
    
 }
@@ -49,4 +51,8 @@ textarea {
     border: dashed #000;
     border-radius: 8px;
     
+}
+
+.hidden-input {
+    display: none;
 }

@@ -1,8 +1,15 @@
+.main {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 input,select,textarea {
     background-color: #fff;
     border: solid 1px #000;
     border-radius: 5px;
-    width: 100%;
+    width: 90%;
     min-height: 2.5em;
     color: #000;
     padding: 2px;
@@ -34,7 +41,7 @@ textarea {
     font-size:1rem;
 
 }
-#save {
+.save {
     background-color: #3c6050;
 }
 
