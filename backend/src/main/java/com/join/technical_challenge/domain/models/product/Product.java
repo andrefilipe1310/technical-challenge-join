@@ -23,7 +23,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, String description, String category, String imageUrl, long price, int amount) {
+    public Product(Long id,String name, String description, String category, String imageUrl, long price, int amount) {
         this.name = name;
         this.description = description;
         this.category = category;

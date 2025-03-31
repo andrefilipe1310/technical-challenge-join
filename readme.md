@@ -3,6 +3,8 @@
 Este projeto é um CRUD de produtos desenvolvido com React no frontend e Spring Boot + H2 no backend. Para aprimorar a experiência, utilizei a identidade visual e a brand persona da Join, criando um gerenciador de produtos intuitivo e alinhado à marca.
 
 Além disso, implementei a integração com o Cloudinary para o armazenamento eficiente das imagens dos produtos e finalizei o projeto com a geração de uma imagem Docker, facilitando a implantação e portabilidade.
+
+Para os testes unitarios foi usado JUnit e Mockito nas classes FindAllProductService, CreateProductService e FindByIdProductService do backend
 ## Tecnologias utilizadas
 - **Java 17**: A linguagem de programação utilizada para desenvolver a lógica de backend da aplicação.
 - **Spring Boot 3**: Framework para construção de aplicações Java, utilizado para criar a API RESTful do projeto.
