@@ -82,10 +82,8 @@ function AddProduct() {
 
     const hadleCreateProduct = async () => {
         // Salvando em centavos para evitar erros de arredondamento
-        setFormData((prevData) => ({
-            ...prevData,
-            price: prevData.price * 100
-        }))
+        formData.price *= 10 
+      
         try {
             await createProduct(formData)
             alert("product cadastrado com sucesso")

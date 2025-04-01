@@ -24,7 +24,7 @@ function CardProduct({ product, onDelete }: { product: ProductResponseDTO; onDel
                 <div className='div-price'>
                     <p>preço</p>
                     {/* convertendo os centavos para o valor em reais */}
-                    <p className='price'>R${product.price/100},00</p>
+                    <p className='price'>R${(product.price/100).toFixed(2)}</p>
                 </div>
                 <div className="div-amount">
                     <p>Estoque</p>
