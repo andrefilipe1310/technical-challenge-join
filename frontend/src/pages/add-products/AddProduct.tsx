@@ -82,6 +82,18 @@ function AddProduct() {
 
     const hadleCreateProduct = async () => {
         // Salvando em centavos para evitar erros de arredondamento
+        if (!formData.name.trim() || !formData.category || !formData.description.trim()) {
+            alert("Todos os campos são obrigatórios!");
+            return
+        }
+        if (formData.price <= 0) {
+            alert("O preço precisa ser maior que 0 reais");
+            return
+        }
+        if (formData.amount <= 0) {
+            alert("Precisa ter um valor superior a zero para o estoque");
+            return
+        }
         formData.price *= 10 
       
         try {
