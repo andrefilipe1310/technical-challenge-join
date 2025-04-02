@@ -28,6 +28,12 @@ git clone https://github.com/andrefilipe1310/technical-challenge-join.git
  ```bash
 cd frontend
 ```
+ ```bash
+npm install
+```
+ ```bash
+npm run dev
+```
 2. **Executar o Backend**
 - Navegue até a pasta do backend e execute o seguinte comando :
 ```bash
